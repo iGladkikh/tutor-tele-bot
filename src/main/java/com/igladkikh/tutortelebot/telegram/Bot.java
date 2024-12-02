@@ -8,12 +8,12 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 
 @Component
 public class Bot extends TelegramWebhookBot {
-    private final TelegramProperties telegramProperties;
+    private final BotProperties botProperties;
 
     @Autowired
-    public Bot(TelegramProperties telegramProperties) {
-        super(telegramProperties.getToken());
-        this.telegramProperties = telegramProperties;
+    public Bot(BotProperties botProperties) {
+        super(botProperties.getToken());
+        this.botProperties = botProperties;
     }
 
     @Override
@@ -23,11 +23,11 @@ public class Bot extends TelegramWebhookBot {
 
     @Override
     public String getBotPath() {
-        return telegramProperties.getPath();
+        return botProperties.getPath();
     }
 
     @Override
     public String getBotUsername() {
-        return telegramProperties.getUsername();
+        return botProperties.getUsername();
     }
 }
